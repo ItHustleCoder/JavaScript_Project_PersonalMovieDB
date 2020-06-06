@@ -21,12 +21,40 @@ const personalMovieDB={
 // How much do you rate it?
 // Put the answer in separate variables
 
-const a = prompt('One of the last watched movies?',''),
+/* const a = prompt('One of the last watched movies?',''),
       b = prompt('How much do you rate it?', ''),
       c = prompt('One of the last watched movies?',''),
       d = prompt('How much do you rate it?', '');
       
 personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;        
+personalMovieDB.movies[c] = d;  */       
 
-console.log(personalMovieDB);
+for (let i=0; i < 2; i++ ){
+    const a = prompt('One of the last watched movies?',''),
+          b = prompt('How much do you rate it?', '');
+
+    if(a != null && b != null && a != '' && b != '' && a.length < 50 ){
+       personalMovieDB.movies[a] = b;
+       console.log('done');
+
+    } else {
+        console.log('errore');
+        i--;
+    }
+    
+    if (personalMovieDB.count < 10) {
+        console.log('Pretty few movies watched');
+
+    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30){
+        console.log('You are classic viewer');
+
+    } else if (personalMovieDB.count >= 30) {
+        console.log('You are movie fun');
+    } else {
+        console.log('Something wrong!!!');
+    }
+
+    
+}
+
+console.log(personalMovieDB); 
